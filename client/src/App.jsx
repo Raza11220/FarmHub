@@ -1,24 +1,13 @@
 import { useState } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-} from "react-router-dom";
-import {
-  Menu,
-  Search,
-  ShoppingCart,
-} from "lucide-react";
-import {
-  SignIn,
-  SignUp,
-  UserButton,
-  SignedIn,
-  SignedOut,
-} from "@clerk/clerk-react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import LivestockCard from "./components/LivestockCard";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AuthLayout from "./components/AuthLayout";
+import FAQSection from "./components/FAQSection";
+import Footer from "./components/Footer";
+import Newsletter from "./components/Newsletter";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { livestock } from "./data/livestock";
 import AnimalDetails from "./pages/AnimalDetails";
 import Livestock from "./pages/Livestock";
@@ -26,6 +15,13 @@ import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Profile from "./pages/Profile";
+import Dashboard from "./pages/Dashboard";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminAnimals from "./pages/AdminAnimals";
+import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 import "./App.css";
 
 
@@ -243,31 +239,91 @@ function Home() {
           className="about-section"
         >
 
-          <div>
+          <div className="about-copy">
 
             <span className="section-label">
               ABOUT FARMHUB
             </span>
 
             <h2>
-              Connecting people with
-              quality livestock.
+              Bringing trust, quality,
+              and value to every livestock decision.
             </h2>
+
+            <p>
+              FarmHub is a modern livestock marketplace designed to help
+              farmers, businesses, and buyers source healthy animals with
+              confidence. We connect people to verified farms, transparent
+              pricing, and dependable support from first inquiry to final
+              delivery.
+            </p>
+
+            <div className="about-points">
+
+              <div className="about-point">
+                <span className="point-icon">✓</span>
+                <div>
+                  <strong>Verified Quality</strong>
+                  <small>Carefully selected animals from trusted farm partners.</small>
+                </div>
+              </div>
+
+              <div className="about-point">
+                <span className="point-icon">✓</span>
+                <div>
+                  <strong>Transparent Process</strong>
+                  <small>Clear guidance, honest pricing, and reliable communication.</small>
+                </div>
+              </div>
+
+              <div className="about-point">
+                <span className="point-icon">✓</span>
+                <div>
+                  <strong>Long-Term Support</strong>
+                  <small>Built for better breeding, farming, and business growth.</small>
+                </div>
+              </div>
+
+            </div>
 
           </div>
 
+          <div className="about-visual">
 
-          <p>
-            FarmHub is a modern livestock marketplace
-            designed to make finding and connecting
-            with quality farm animals simple,
-            transparent and reliable.
-          </p>
+            <div className="about-panel main-panel">
+              <span className="about-badge">Trusted network</span>
+              <h3>Healthy livestock from verified farms</h3>
+              <ul>
+                <li>On-farm quality checks</li>
+                <li>Transparent animal profiles</li>
+                <li>Professional buyer support</li>
+              </ul>
+            </div>
+
+            <div className="about-panel mini-panel">
+              <div className="metric-box">
+                <strong>500+</strong>
+                <span>Animals listed</span>
+              </div>
+              <div className="metric-box">
+                <strong>50+</strong>
+                <span>Trusted farms</span>
+              </div>
+              <div className="metric-box highlight">
+                <strong>100%</strong>
+                <span>Quality-focused</span>
+              </div>
+            </div>
+
+          </div>
 
         </section>
 
+        <FAQSection />
+        <Newsletter />
       </main>
 
+      <Footer />
     </div>
   );
 }
@@ -279,64 +335,28 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
-
-      <Routes>
-
-        {/* Home */}
-        <Route
-          path="/"
-          element={<Home />}
-        />
-
-
-        {/* Livestock */}
-        <Route
-          path="/livestock"
-          element={<Livestock />}
-        />
-
-
-        {/* Animal Details */}
-        <Route
-          path="/livestock/:id"
-          element={<AnimalDetails />}
-        />
-
-
-        {/* Contact */}
-        <Route
-          path="/contact"
-          element={<Contact />}
-        />
-
-        {/* Cart */}
-        <Route
-          path="/cart"
-          element={<Cart />}
-        />
-
-        {/* Checkout */}
-        <Route
-          path="/checkout"
-          element={<Checkout />}
-        />
-
-        {/* Clerk Sign In */}
-        <Route
-          path="/sign-in/*"
-          element={<SignIn />}
-        />
-
-        {/* Clerk Sign Up */}
-        <Route
-          path="/sign-up/*"
-          element={<SignUp />}
-        />
-
-      </Routes>
-
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/livestock" element={<Livestock />} />
+          <Route path="/livestock/:id" element={<AnimalDetails />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/faq" element={<><Navbar /><main className="page-shell"><FAQSection /></main><Footer /></>} />
+          <Route path="/privacy-policy" element={<><Navbar /><main className="page-shell"><PrivacyPolicy /></main><Footer /></>} />
+          <Route path="/terms" element={<><Navbar /><main className="page-shell"><Terms /></main><Footer /></>} />
+          <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+          <Route path="/admin/animals" element={<ProtectedRoute><AdminAnimals /></ProtectedRoute>} />
+          <Route path="/sign-in/*" element={<AuthLayout mode="sign-in" />} />
+          <Route path="/sign-up/*" element={<AuthLayout mode="sign-up" />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 

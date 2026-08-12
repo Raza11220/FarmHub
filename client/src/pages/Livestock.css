@@ -1,61 +1,16 @@
-/* =========================================
-   FARMHUB - GLOBAL
-========================================= */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f8f6ee;
-  color: #123b20;
-}
-
-button,
-input,
-select {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-
-/* =========================================
-   LIVESTOCK PAGE
-========================================= */
-
 .livestock-page {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 70px 7% 100px;
 }
-
-
-/* =========================================
-   PAGE HEADER
-========================================= */
 
 .livestock-page-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .section-label {
@@ -106,20 +61,125 @@ a {
   font-size: 13px;
 }
 
+.livestock-shell {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
 
-/* =========================================
-   TOOLBAR
-========================================= */
+.filter-panel {
+  background: #ffffff;
+  border: 1px solid #e3e0d7;
+  border-radius: 20px;
+  padding: 22px 18px;
+  box-shadow: 0 18px 40px rgba(20, 70, 30, 0.04);
+}
+
+.filter-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #173b20;
+}
+
+.filter-panel-header h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-group label {
+  color: #2d3f35;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.filter-group select,
+.filter-group input[type="range"] {
+  width: 100%;
+}
+
+.filter-group select {
+  height: 42px;
+  border: 1px solid #e2ddd0;
+  border-radius: 10px;
+  background: #fbfaf7;
+  padding: 0 12px;
+  color: #173d22;
+}
+
+.filter-group input[type="range"] {
+  accent-color: #2d8238;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-btn {
+  border: 1px solid #dedbd0;
+  background: white;
+  color: #31583b;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+  border-color: #2d8238;
+  color: #2d8238;
+  transform: translateY(-1px);
+}
+
+.category-btn.active {
+  background: #2d8238;
+  border-color: #2d8238;
+  color: white;
+}
+
+.clear-filter-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  background: #edf5ee;
+  color: #1d7c35;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.results-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
 .livestock-toolbar {
   display: flex;
+  justify-content: space-between;
   gap: 16px;
-  margin-bottom: 24px;
+  align-items: center;
 }
 
 .search-box {
   flex: 1;
-  max-width: 600px;
+  max-width: 640px;
   height: 52px;
   display: flex;
   align-items: center;
@@ -154,6 +214,12 @@ a {
   color: #9a9f99;
 }
 
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .sort-box {
   height: 52px;
   display: flex;
@@ -177,69 +243,106 @@ a {
   cursor: pointer;
 }
 
+.view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #e3e0d7;
+  border-radius: 12px;
+  padding: 6px;
+}
 
-/* =========================================
-   CATEGORY FILTERS
-========================================= */
+.view-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: none;
+  display: grid;
+  place-items: center;
+  color: #2b4636;
+  background: transparent;
+}
 
-.livestock-page-categories {
+.view-btn.active {
+  background: #edf5ee;
+  color: #1d7c35;
+}
+
+.compare-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #f9f7f1;
+  border: 1px solid #e5dec9;
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+
+.compare-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #204d2c;
+  font-weight: 700;
+}
+
+.compare-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 35px;
+  gap: 8px;
 }
 
-.category-btn {
-  border: 1px solid #dedbd0;
-  background: white;
-  color: #31583b;
-  padding: 10px 20px;
+.compare-items span {
+  padding: 6px 10px;
   border-radius: 999px;
+  background: #edf5ee;
+  color: #1d7c35;
+  font-size: 12px;
   font-weight: 700;
-  transition: all 0.2s ease;
 }
 
-.category-btn:hover {
-  border-color: #2d8238;
-  color: #2d8238;
-  transform: translateY(-1px);
-}
-
-.category-btn.active {
-  background: #2d8238;
-  border-color: #2d8238;
-  color: white;
-}
-
-
-/* =========================================
-   LIVESTOCK GRID
-========================================= */
-
-.livestock-grid {
+.livestock-grid,
+.livestock-list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
 
+.livestock-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 
-/* =========================================
-   LIVESTOCK CARD
-========================================= */
+.livestock-list {
+  grid-template-columns: 1fr;
+}
 
 .livestock-card {
+  position: relative;
   overflow: hidden;
   background: white;
   border: 1px solid #e3e0d7;
   border-radius: 18px;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .livestock-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 40px rgba(20, 70, 30, 0.12);
+}
+
+.livestock-card.list-view {
+  display: flex;
+  align-items: stretch;
+}
+
+.livestock-card.list-view .animal-image {
+  width: 260px;
+  min-width: 260px;
+}
+
+.livestock-card.list-view .animal-content {
+  flex: 1;
 }
 
 .animal-image {
@@ -250,6 +353,18 @@ a {
   align-items: center;
   background: #edf4e9;
   overflow: hidden;
+}
+
+.animal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.livestock-card:hover .animal-photo {
+  transform: scale(1.05);
 }
 
 .animal-id {
@@ -264,8 +379,33 @@ a {
   font-weight: 800;
 }
 
+.quick-actions {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.quick-action {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #295c34;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 15px rgba(20, 70, 30, 0.08);
+}
+
+.quick-action.active {
+  background: #2d8238;
+  color: #fff;
+}
+
 .animal-content {
-  padding: 25px;
+  padding: 24px;
 }
 
 .animal-category {
@@ -349,10 +489,53 @@ a {
   color: #c75a3e;
 }
 
+.card-actions {
+  margin-top: 18px;
+}
 
-/* =========================================
-   EMPTY STATE
-========================================= */
+.cart-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #2d8238;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart-btn:hover {
+  background: #1f6628;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+  color: #274d32;
+}
+
+.pagination button {
+  border: 1px solid #d7e1d8;
+  background: white;
+  color: #204d2c;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 700;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 .empty-livestock {
   min-height: 350px;
@@ -396,22 +579,67 @@ a {
   background: #21662a;
 }
 
+.skeleton-card {
+  background: #fff;
+  border: 1px solid #ebefe7;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+.skeleton-image,
+.skeleton-line {
+  background: linear-gradient(90deg, #f1efe9 25%, #ebe9e3 50%, #f1efe9 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.1s infinite linear;
+}
 
-@media (max-width: 1100px) {
+.skeleton-image {
+  height: 200px;
+  border-radius: 14px;
+}
 
+.skeleton-line {
+  height: 14px;
+  border-radius: 8px;
+}
+
+.skeleton-line.short {
+  width: 30%;
+}
+
+.skeleton-line.medium {
+  width: 65%;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 1200px) {
   .livestock-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
 }
 
+@media (max-width: 980px) {
+  .livestock-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-panel {
+    order: 2;
+  }
+
+  .results-panel {
+    order: 1;
+  }
+}
 
 @media (max-width: 800px) {
-
   .livestock-page {
     padding: 50px 5% 80px;
   }
@@ -427,25 +655,32 @@ a {
 
   .livestock-toolbar {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .search-box {
     max-width: none;
   }
 
-  .sort-box {
-    width: 100%;
+  .toolbar-actions {
+    justify-content: space-between;
   }
 
   .livestock-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .livestock-card.list-view {
+    flex-direction: column;
+  }
+
+  .livestock-card.list-view .animal-image {
+    width: 100%;
+    min-width: 100%;
+  }
 }
 
-
 @media (max-width: 550px) {
-
   .livestock-page {
     padding: 35px 20px 60px;
   }
@@ -466,44 +701,23 @@ a {
     height: 240px;
   }
 
-}
+  .compare-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.animal-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
+  .toolbar-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-.livestock-card:hover .animal-photo {
-  transform: scale(1.05);
-}
+  .sort-box {
+    width: 100%;
+  }
 
-.animal-image {
-  position: relative;
-  height: 230px;
-  overflow: hidden;
-  background: #edf4e9;
-}
-
-.card-actions {
-  margin-top: 18px;
-}
-
-.cart-btn {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background: #2d8238;
-  color: white;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.cart-btn:hover {
-  background: #1f6628;
+  .view-toggle {
+    width: fit-content;
+    align-self: flex-end;
+  }
 }

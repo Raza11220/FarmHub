@@ -1,3 +1,152 @@
+:root {
+  --bg: #f8f5ec;
+  --bg-soft: #f5f1e8;
+  --panel: #ffffff;
+  --panel-alt: #eef3ed;
+  --card: #fffdf9;
+  --text: #173b20;
+  --text-soft: #68736b;
+  --muted: #79907e;
+  --primary: #2e7d32;
+  --primary-dark: #215e2a;
+  --primary-soft: #eaf5ea;
+  --border: #e6e1d6;
+  --shadow: rgba(10, 39, 20, 0.12);
+  --gold: #f4aa32;
+  --danger: #d9485f;
+  --success: #2ea86f;
+  --max-width: 1280px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html[data-theme="dark"] {
+  --bg: #0f1713;
+  --bg-soft: #121d18;
+  --panel: #13221a;
+  --panel-alt: #1a2e25;
+  --card: #152a22;
+  --text: #ecf5ee;
+  --text-soft: #b2c1b7;
+  --muted: #8aa18f;
+  --primary: #4dbb64;
+  --primary-dark: #3d9d52;
+  --primary-soft: rgba(77, 187, 100, 0.12);
+  --border: rgba(224, 228, 220, 0.12);
+  --shadow: rgba(0, 0, 0, 0.3);
+  --gold: #f7ba59;
+  --danger: #ff7a90;
+  --success: #58d39b;
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .app,
+html[data-theme="dark"] .page-shell,
+html[data-theme="dark"] .profile-page,
+html[data-theme="dark"] .auth-page-shell,
+html[data-theme="dark"] .animal-details-page,
+html[data-theme="dark"] .contact-page,
+html[data-theme="dark"] .checkout-page,
+html[data-theme="dark"] .cart-page {
+  background: var(--bg);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .navbar,
+html[data-theme="dark"] .farm-card,
+html[data-theme="dark"] .livestock-card,
+html[data-theme="dark"] .faq-item,
+html[data-theme="dark"] .newsletter-card,
+html[data-theme="dark"] .site-footer,
+html[data-theme="dark"] .about-panel,
+html[data-theme="dark"] .about-point,
+html[data-theme="dark"] .auth-card,
+html[data-theme="dark"] .profile-panel,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .checkout-card,
+html[data-theme="dark"] .cart-item,
+html[data-theme="dark"] .summary-box {
+  background: var(--panel);
+  border-color: var(--border);
+  color: var(--text);
+  box-shadow: 0 18px 40px var(--shadow);
+}
+
+html[data-theme="dark"] .hero,
+html[data-theme="dark"] .livestock-section,
+html[data-theme="dark"] .faq-section,
+html[data-theme="dark"] .newsletter-section,
+html[data-theme="dark"] .about-section,
+html[data-theme="dark"] .auth-loading,
+html[data-theme="dark"] .page-shell,
+html[data-theme="dark"] .contact-page,
+html[data-theme="dark"] .cart-page {
+  background: var(--bg-soft);
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] strong,
+html[data-theme="dark"] .logo,
+html[data-theme="dark"] .animal-content h3,
+html[data-theme="dark"] .about-copy h2,
+html[data-theme="dark"] .about-point strong,
+html[data-theme="dark"] .newsletter-card h2,
+html[data-theme="dark"] .faq-item h3,
+html[data-theme="dark"] .footer-links h4,
+html[data-theme="dark"] .footer-contact h4,
+html[data-theme="dark"] .section-heading h2,
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] .hero-stats strong,
+html[data-theme="dark"] .contact-header h2,
+html[data-theme="dark"] .checkout-title,
+html[data-theme="dark"] .cart-title {
+  color: var(--text);
+}
+
+html[data-theme="dark"] p,
+html[data-theme="dark"] .nav-links a,
+html[data-theme="dark"] .hero p,
+html[data-theme="dark"] .faq-item p,
+html[data-theme="dark"] .about-copy p,
+html[data-theme="dark"] .animal-description,
+html[data-theme="dark"] .footer-brand p,
+html[data-theme="dark"] .footer-links a,
+html[data-theme="dark"] .footer-contact span,
+html[data-theme="dark"] .about-point small,
+html[data-theme="dark"] .newsletter-card .section-label,
+html[data-theme="dark"] .faq-item .section-label {
+  color: var(--text-soft);
+}
+
+html[data-theme="dark"] .nav-links a,
+html[data-theme="dark"] .icon-btn,
+html[data-theme="dark"] .menu-btn,
+html[data-theme="dark"] .secondary-btn,
+html[data-theme="dark"] .category-btn,
+html[data-theme="dark"] .input,
+html[data-theme="dark"] .newsletter-form input {
+  color: var(--text);
+}
+
+html[data-theme="dark"] .secondary-btn,
+html[data-theme="dark"] .category-btn,
+html[data-theme="dark"] .newsletter-form input,
+html[data-theme="dark"] .contact-form input,
+html[data-theme="dark"] .contact-form textarea,
+html[data-theme="dark"] .checkout-form input,
+html[data-theme="dark"] .checkout-form select {
+  background: var(--panel-alt);
+  border-color: var(--border);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,5 +160,54 @@ body,
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Inter, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(46, 125, 50, 0.35);
+  outline-offset: 2px;
+}
+
+#root {
+  width: 100%;
+}
+
+.page-shell {
+  min-height: calc(100vh - 76px);
+  padding: 48px 7% 72px;
+}
+
+.farmhub-toast {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .page-shell {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

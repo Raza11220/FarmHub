@@ -1,5 +1,6 @@
-import { Menu, Search, ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Menu, MoonStar, Search, ShoppingCart, SunMedium } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import {
   SignedIn,
@@ -10,13 +11,32 @@ import {
 
 function Navbar() {
   const { totalItems } = useCart();
+  const location = useLocation();
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") {
+      return "light";
+    }
+
+    const savedTheme = localStorage.getItem("farmhub-theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      return savedTheme;
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem("farmhub-theme", theme);
+  }, [theme]);
 
   return (
     <header className="navbar">
 
       {/* Logo */}
       <Link to="/" className="logo">
-        <div className="logo-icon">FH</div>
+        <img src="/assets/images/logo.png" alt="FarmHub logo" className="brand-logo" />
         <span>FarmHub</span>
       </Link>
 
@@ -32,7 +52,7 @@ function Navbar() {
       <div className="nav-actions">
 
         {/* Search */}
-        <button className="icon-btn" aria-label="Search">
+        <button className="icon-btn search-btn" aria-label="Search">
           <Search size={20} />
         </button>
 
@@ -47,22 +67,29 @@ function Navbar() {
           )}
         </Link>
 
-        {/* Clerk Login */}
+        <button
+          type="button"
+          className="icon-btn"
+          aria-label="Toggle dark mode"
+          onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
+        >
+          {theme === "dark" ? <SunMedium size={18} /> : <MoonStar size={18} />}
+        </button>
+
         <SignedOut>
-          <SignInButton mode="modal">
-            <button className="primary-btn">
+          <SignInButton mode="modal" redirectUrl={location.pathname}>
+            <button className="primary-btn" type="button">
               Login
             </button>
           </SignInButton>
         </SignedOut>
 
         <SignedIn>
-          <UserButton afterSignOutUrl="/" />
-        </SignedIn>  
-
-        {/* Clerk User */}
-        <SignedIn>
-          <UserButton afterSignOutUrl="/" />
+          <UserButton
+            afterSignOutUrl="/"
+            userProfileMode="navigation"
+            userProfileUrl="/profile"
+          />
         </SignedIn>
 
         {/* Menu */}
