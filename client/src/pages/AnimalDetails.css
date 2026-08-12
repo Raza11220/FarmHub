@@ -1,0 +1,455 @@
+/* =========================================
+   FARMHUB - ANIMAL DETAILS
+========================================= */
+
+.animal-details-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 50px 7% 100px;
+}
+
+/* Back Button */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 35px;
+
+  color: #2d8238;
+  font-size: 15px;
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.back-link:hover {
+  gap: 12px;
+  color: #1d632b;
+}
+
+/* Main Layout */
+
+.animal-detail-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Animal Visual */
+
+.animal-detail-visual {
+  position: relative;
+
+  min-height: 560px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #edf4e9;
+
+  border: 1px solid #dfe8d9;
+  border-radius: 28px;
+
+  overflow: hidden;
+}
+
+/* Decorative Circle */
+
+.animal-detail-visual::before {
+  content: "";
+
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  border-radius: 50%;
+
+  background: #f5aa27;
+
+  opacity: 0.9;
+}
+
+/* Emoji */
+
+.detail-emoji {
+  position: relative;
+  z-index: 2;
+
+  font-size: 220px;
+
+  transition: transform 0.35s ease;
+}
+
+.animal-detail-visual:hover .detail-emoji {
+  transform: scale(1.08);
+}
+
+/* Animal ID */
+
+.detail-animal-id {
+  position: absolute;
+
+  top: 25px;
+  right: 25px;
+
+  z-index: 5;
+
+  padding: 10px 15px;
+
+  background: #f5aa27;
+  color: white;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Content */
+
+.animal-detail-content {
+  padding: 20px 0;
+}
+
+.detail-category {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  color: #718079;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.animal-detail-content h1 {
+  margin-bottom: 20px;
+
+  color: #123b20;
+
+  font-family: Georgia, serif;
+
+  font-size: clamp(48px, 6vw, 76px);
+
+  line-height: 0.95;
+}
+
+.detail-description {
+  max-width: 600px;
+
+  margin-bottom: 35px;
+
+  color: #65736a;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+/* Information */
+
+.detail-info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1px;
+
+  margin-bottom: 30px;
+
+  background: #dedbd0;
+
+  border: 1px solid #dedbd0;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+}
+
+.detail-info-grid > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  padding: 20px;
+
+  background: white;
+}
+
+.detail-info-grid span {
+  color: #89928b;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.7px;
+}
+
+.detail-info-grid strong {
+  color: #254d31;
+
+  font-size: 15px;
+}
+
+/* Price */
+
+.detail-purchase {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+
+  padding: 22px 24px;
+
+  background: #e9f2e5;
+
+  border-radius: 15px;
+}
+
+.detail-purchase > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.detail-purchase > div span {
+  color: #718079;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+.detail-purchase strong {
+  color: #146126;
+
+  font-family: Georgia, serif;
+
+  font-size: 28px;
+}
+
+/* Status */
+
+.detail-status {
+  padding: 9px 14px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+.detail-status.available {
+  background: #dcefd8;
+
+  color: #257132;
+}
+
+.detail-status.sold {
+  background: #f8e6e0;
+
+  color: #c75a3e;
+}
+
+/* Enquire Button */
+
+.enquire-btn {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 16px 24px;
+
+  background: #2d8238;
+
+  color: white;
+
+  border-radius: 11px;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.enquire-btn:hover {
+  background: #21662a;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 25px rgba(45, 130, 56, 0.2);
+}
+
+/* Verified Message */
+
+.verified-message {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 16px;
+
+  color: #397344;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.verified-message svg {
+  flex-shrink: 0;
+}
+
+/* Not Found */
+
+.not-found {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  padding: 40px;
+}
+
+.not-found h1 {
+  margin-bottom: 10px;
+
+  color: #123b20;
+
+  font-family: Georgia, serif;
+
+  font-size: 48px;
+}
+
+.not-found p {
+  margin-bottom: 25px;
+
+  color: #718079;
+}
+
+.not-found a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 12px 20px;
+
+  background: #2d8238;
+
+  color: white;
+
+  border-radius: 9px;
+
+  font-weight: 700;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .animal-detail-layout {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .animal-detail-visual {
+    min-height: 450px;
+  }
+
+  .detail-emoji {
+    font-size: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .animal-details-page {
+    padding: 35px 20px 70px;
+  }
+
+  .animal-detail-visual {
+    min-height: 350px;
+
+    border-radius: 20px;
+  }
+
+  .animal-detail-visual::before {
+    width: 250px;
+    height: 250px;
+  }
+
+  .detail-emoji {
+    font-size: 140px;
+  }
+
+  .detail-animal-id {
+    top: 15px;
+    right: 15px;
+  }
+
+  .animal-detail-content h1 {
+    font-size: 50px;
+  }
+
+  .detail-description {
+    font-size: 15px;
+  }
+
+  .detail-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-purchase {
+    align-items: flex-start;
+  }
+
+  .detail-purchase strong {
+    font-size: 23px;
+  }
+}

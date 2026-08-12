@@ -1,0 +1,245 @@
+/* =========================================
+   FARMHUB - CONTACT PAGE
+========================================= */
+
+.contact-page {
+  min-height: calc(100vh - 80px);
+  padding: 80px 7% 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.contact-header {
+  max-width: 760px;
+  margin-bottom: 60px;
+}
+
+.contact-header h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 1;
+  color: #123b20;
+  margin-bottom: 25px;
+}
+
+.contact-header h1 span {
+  color: #2d8238;
+}
+
+.contact-header p {
+  max-width: 600px;
+  color: #65736a;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   LAYOUT
+========================================= */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* =========================================
+   CONTACT INFO
+========================================= */
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-info-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  background: white;
+  border: 1px solid #e3e0d7;
+  border-radius: 16px;
+  transition: 0.25s ease;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(20, 70, 30, 0.1);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e9f2e5;
+  color: #2d8238;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.contact-info-card span {
+  display: block;
+  margin-bottom: 6px;
+  color: #89928b;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-info-card a,
+.contact-info-card strong {
+  color: #123b20;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.contact-info-card a:hover {
+  color: #2d8238;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.contact-form {
+  padding: 35px;
+  background: white;
+  border: 1px solid #e3e0d7;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(20, 70, 30, 0.06);
+}
+
+.contact-form h2 {
+  margin-bottom: 28px;
+  color: #123b20;
+  font-family: Georgia, serif;
+  font-size: 32px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  color: #31583b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid #dedbd0;
+  outline: none;
+  background: #faf9f4;
+  color: #173d22;
+  padding: 14px 15px;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.form-group input {
+  height: 50px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #2d8238;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(45, 130, 56, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #a0a49f;
+}
+
+/* =========================================
+   SUBMIT BUTTON
+========================================= */
+
+.contact-submit {
+  width: 100%;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #2d8238;
+  color: white;
+  font-weight: 800;
+  transition: 0.25s ease;
+}
+
+.contact-submit:hover {
+  background: #21662a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(45, 130, 56, 0.2);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+  .contact-page {
+    padding: 60px 5% 80px;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-header h1 {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 550px) {
+  .contact-page {
+    padding: 40px 20px 60px;
+  }
+
+  .contact-header h1 {
+    font-size: 44px;
+  }
+
+  .contact-header p {
+    font-size: 15px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-form {
+    padding: 24px;
+  }
+}

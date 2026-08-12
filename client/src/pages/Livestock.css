@@ -1,0 +1,509 @@
+/* =========================================
+   FARMHUB - GLOBAL
+========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f6ee;
+  color: #123b20;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* =========================================
+   LIVESTOCK PAGE
+========================================= */
+
+.livestock-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 70px 7% 100px;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.livestock-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.section-label {
+  display: inline-block;
+  color: #e99b18;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+.livestock-page-header h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: 0.98;
+  color: #123b20;
+  margin-bottom: 20px;
+}
+
+.livestock-page-header h1 span {
+  color: #2d8238;
+}
+
+.livestock-page-header p {
+  max-width: 580px;
+  color: #65736a;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.livestock-count {
+  min-width: 150px;
+  padding: 22px 28px;
+  background: #e9f2e5;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.livestock-count strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 38px;
+  color: #1d632b;
+}
+
+.livestock-count span {
+  color: #647568;
+  font-size: 13px;
+}
+
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.livestock-toolbar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-box {
+  flex: 1;
+  max-width: 600px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+  background: white;
+  border: 1px solid #dedbd0;
+  border-radius: 12px;
+  transition: 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: #2d8238;
+  box-shadow: 0 0 0 3px rgba(45, 130, 56, 0.1);
+}
+
+.search-box svg {
+  color: #66806b;
+  flex-shrink: 0;
+}
+
+.search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #173d22;
+  font-size: 15px;
+}
+
+.search-box input::placeholder {
+  color: #9a9f99;
+}
+
+.sort-box {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  background: white;
+  border: 1px solid #dedbd0;
+  border-radius: 12px;
+}
+
+.sort-box svg {
+  color: #2d8238;
+}
+
+.sort-box select {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #173d22;
+  cursor: pointer;
+}
+
+
+/* =========================================
+   CATEGORY FILTERS
+========================================= */
+
+.livestock-page-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.category-btn {
+  border: 1px solid #dedbd0;
+  background: white;
+  color: #31583b;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+  border-color: #2d8238;
+  color: #2d8238;
+  transform: translateY(-1px);
+}
+
+.category-btn.active {
+  background: #2d8238;
+  border-color: #2d8238;
+  color: white;
+}
+
+
+/* =========================================
+   LIVESTOCK GRID
+========================================= */
+
+.livestock-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+
+/* =========================================
+   LIVESTOCK CARD
+========================================= */
+
+.livestock-card {
+  overflow: hidden;
+  background: white;
+  border: 1px solid #e3e0d7;
+  border-radius: 18px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.livestock-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(20, 70, 30, 0.12);
+}
+
+.animal-image {
+  position: relative;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #edf4e9;
+  overflow: hidden;
+}
+
+.animal-id {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #f5aa27;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.animal-content {
+  padding: 25px;
+}
+
+.animal-category {
+  margin-bottom: 8px;
+  color: #718079;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.animal-content h3 {
+  margin-bottom: 22px;
+  color: #123b20;
+  font-family: Georgia, serif;
+  font-size: 29px;
+}
+
+.animal-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e5e1d8;
+}
+
+.animal-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.animal-details span {
+  color: #89928b;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.animal-details strong {
+  color: #254d31;
+  font-size: 13px;
+}
+
+.animal-description {
+  min-height: 55px;
+  margin: 18px 0;
+  color: #68766d;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.animal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.animal-footer > strong {
+  color: #146126;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+
+.status {
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.status.available {
+  background: #e5f2e2;
+  color: #257132;
+}
+
+.status.sold {
+  background: #f8e6e0;
+  color: #c75a3e;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-livestock {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: white;
+  border: 1px dashed #d4d0c5;
+  border-radius: 20px;
+}
+
+.empty-livestock > div {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.empty-livestock h2 {
+  margin-bottom: 8px;
+  color: #123b20;
+  font-family: Georgia, serif;
+  font-size: 30px;
+}
+
+.empty-livestock p {
+  margin-bottom: 20px;
+  color: #758078;
+}
+
+.empty-livestock button {
+  border: none;
+  background: #2d8238;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+.empty-livestock button:hover {
+  background: #21662a;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .livestock-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .livestock-page {
+    padding: 50px 5% 80px;
+  }
+
+  .livestock-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .livestock-count {
+    width: 100%;
+  }
+
+  .livestock-toolbar {
+    flex-direction: column;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+
+  .sort-box {
+    width: 100%;
+  }
+
+  .livestock-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 550px) {
+
+  .livestock-page {
+    padding: 35px 20px 60px;
+  }
+
+  .livestock-page-header h1 {
+    font-size: 46px;
+  }
+
+  .livestock-page-header p {
+    font-size: 15px;
+  }
+
+  .livestock-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .animal-image {
+    height: 240px;
+  }
+
+}
+
+.animal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.livestock-card:hover .animal-photo {
+  transform: scale(1.05);
+}
+
+.animal-image {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+  background: #edf4e9;
+}
+
+.card-actions {
+  margin-top: 18px;
+}
+
+.cart-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #2d8238;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart-btn:hover {
+  background: #1f6628;
+}
