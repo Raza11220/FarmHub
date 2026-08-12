@@ -10,6 +10,13 @@ import {
   Search,
   ShoppingCart,
 } from "lucide-react";
+import {
+  SignIn,
+  SignUp,
+  UserButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/clerk-react";
 
 import LivestockCard from "./components/LivestockCard";
 import { livestock } from "./data/livestock";
@@ -313,6 +320,18 @@ function App() {
         <Route
           path="/checkout"
           element={<Checkout />}
+        />
+
+        {/* Clerk Sign In */}
+        <Route
+          path="/sign-in/*"
+          element={<SignIn />}
+        />
+
+        {/* Clerk Sign Up */}
+        <Route
+          path="/sign-up/*"
+          element={<SignUp />}
         />
 
       </Routes>
