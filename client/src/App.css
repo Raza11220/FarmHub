@@ -15,10 +15,12 @@
 /* NAVBAR */
 
 .navbar {
-  height: 76px;
-  padding: 0 7%;
+  min-height: 76px;
+  padding: 12px 7%;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 18px;
   justify-content: space-between;
   background: #ffffff;
   border-bottom: 1px solid #e8e3d7;
@@ -62,6 +64,15 @@
   gap: 38px;
 }
 
+.nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex: 1 1 520px;
+  min-width: 0;
+}
+
 .nav-links a {
   color: #425047;
   text-decoration: none;
@@ -78,6 +89,54 @@
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+}
+
+.nav-search {
+  flex: 1 1 320px;
+  max-width: 360px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 1px solid #dfe7dc;
+  border-radius: 999px;
+  background: #f7f5ee;
+}
+
+.nav-search svg {
+  color: #66806b;
+  flex-shrink: 0;
+}
+
+.nav-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #173b20;
+  font-size: 14px;
+  min-width: 0;
+}
+
+.nav-search input::placeholder {
+  color: #889489;
+}
+
+.search-submit {
+  border: none;
+  background: #2e7d32;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.search-submit:hover {
+  background: #256b2a;
 }
 
 .icon-btn,
@@ -269,12 +328,23 @@
 /* RESPONSIVE */
 
 @media (max-width: 850px) {
+  .navbar {
+    align-items: flex-start;
+  }
+
+  .nav-center {
+    order: 3;
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
   .nav-links {
     display: none;
   }
 
-  .search-btn {
-    display: none;
+  .nav-search {
+    max-width: none;
+    width: 100%;
   }
 
   .menu-btn {
@@ -302,7 +372,7 @@
 
 @media (max-width: 550px) {
   .navbar {
-    padding: 0 20px;
+    padding: 12px 20px 16px;
     gap: 12px;
   }
 
@@ -319,6 +389,15 @@
   .nav-actions {
     gap: 4px;
     margin-left: auto;
+  }
+
+  .nav-search {
+    height: 48px;
+    padding-inline: 12px;
+  }
+
+  .search-submit {
+    padding: 8px 12px;
   }
 
   .hero {

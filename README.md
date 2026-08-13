@@ -18,6 +18,20 @@ FarmHub is designed to simplify livestock buying while improving trust and trans
 - Clerk-powered authentication
 - responsive, mobile-friendly UI with premium styling
 
+![1786597232699](image/README/1786597232699.png)
+
+![1786597465737](image/README/1786597465737.png)
+
+![1786597488383](image/README/1786597488383.png)
+
+![1786597870641](image/README/1786597870641.png)
+
+![1786597535464](image/README/1786597535464.png)
+
+![1786597569461](image/README/1786597569461.png)
+
+![1786597676689](image/README/1786597676689.png)
+
 ## ✨ Key Features
 
 ### Customer Experience

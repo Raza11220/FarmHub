@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, MoonStar, Search, ShoppingCart, SunMedium } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import {
   SignedIn,
@@ -12,6 +12,8 @@ import {
 function Navbar() {
   const { totalItems } = useCart();
   const location = useLocation();
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
   const [theme, setTheme] = useState(() => {
     if (typeof window === "undefined") {
       return "light";
@@ -31,6 +33,19 @@ function Navbar() {
     localStorage.setItem("farmhub-theme", theme);
   }, [theme]);
 
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+
+    const query = searchTerm.trim();
+
+    if (!query) {
+      navigate("/livestock");
+      return;
+    }
+
+    navigate(`/livestock?search=${encodeURIComponent(query)}`);
+  };
+
   return (
     <header className="navbar">
 
@@ -40,22 +55,32 @@ function Navbar() {
         <span>FarmHub</span>
       </Link>
 
-      {/* Navigation */}
-      <nav className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/livestock">Livestock</Link>
-        <Link to="/#about">About</Link>
-        <Link to="/contact">Contact</Link>
-      </nav>
+      <div className="nav-center">
+        {/* Navigation */}
+        <nav className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/livestock">Livestock</Link>
+          <Link to="/#about">About</Link>
+          <Link to="/contact">Contact</Link>
+        </nav>
+
+        <form className="nav-search" onSubmit={handleSearchSubmit} role="search">
+          <Search size={18} aria-hidden="true" />
+          <input
+            type="search"
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            placeholder="Search animals, breeds..."
+            aria-label="Search livestock"
+          />
+          <button type="submit" className="search-submit" aria-label="Submit search">
+            Search
+          </button>
+        </form>
+      </div>
 
       {/* Actions */}
       <div className="nav-actions">
-
-        {/* Search */}
-        <button className="icon-btn search-btn" aria-label="Search">
-          <Search size={20} />
-        </button>
-
         {/* Cart */}
         <Link to="/cart" className="icon-btn cart-btn">
           <ShoppingCart size={20} />

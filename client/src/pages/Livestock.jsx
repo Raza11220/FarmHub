@@ -3,6 +3,7 @@ import { Search, SlidersHorizontal, Grid2x2, List, Heart, ArrowLeftRight, X } fr
 import LivestockCard from "../components/LivestockCard";
 import { livestock } from "../data/livestock";
 import Navbar from "../components/Navbar";
+import { useSearchParams } from "react-router-dom";
 import "./Livestock.css";
 
 const pageSize = 8;
@@ -29,11 +30,12 @@ function parseWeightKg(weightText) {
 }
 
 function Livestock() {
+  const [searchParams] = useSearchParams();
+  const searchTerm = searchParams.get("search") ?? "";
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedBreed, setSelectedBreed] = useState("All");
   const [selectedGender, setSelectedGender] = useState("All");
   const [selectedAvailability, setSelectedAvailability] = useState("All");
-  const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("default");
   const [viewMode, setViewMode] = useState("grid");
   const [priceLimit, setPriceLimit] = useState(Math.max(...livestock.map((item) => item.price)));
@@ -126,7 +128,6 @@ function Livestock() {
     setSelectedBreed("All");
     setSelectedGender("All");
     setSelectedAvailability("All");
-    setSearchTerm("");
     setSortBy("default");
     setPriceLimit(Math.max(...livestock.map((item) => item.price)));
     setAgeLimit(Math.max(...livestock.map((item) => parseAgeMonths(item.age))));
